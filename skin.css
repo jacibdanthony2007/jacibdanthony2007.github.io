@@ -1,189 +1,59 @@
-/* ===== MONNORL PS4 (FULL REPLACEMENT) ===== */
-/* Goal: hard-center controller + use MonnoRL assets + PS4 black template positions */
+/* ===== MONNORL PS4 GAMEPAD VIEWER (FINAL FIX) ===== */
 
-/* Make the page predictable */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  overflow: hidden !important;
-}
-
-/* Hard-center the controller container (works in browser + OBS) */
-#controller {
-  position: fixed !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-/* Sometimes GPV wraps controllers */
-.controllers, .controller-container, .gamepads {
-  position: fixed !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-/* Base controller */
-.controller.ds4, .ds4 {
+/* Base controller — DO NOT move container */
+.controller.ds4 {
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
-  width: 806px !important;
-  height: 598px !important;
-  position: relative !important;
+
+  /* NUDGE base image to align with PS4 template */
+  background-position: center -18px !important;
+
+  width: 806px;
+  height: 598px;
 }
 
-/* If disconnected, don't hide anything */
-.ds4.disconnected { background: none !important; }
-.ds4.disconnected div { display: block !important; }
-
+/* Prevent disconnected skin from hiding elements */
+.ds4.disconnected {
+  background: none !important;
+}
+.ds4.disconnected div {
+  display: block !important;
+}
 
 /* ===== TRIGGERS ===== */
-.ds4 .triggers {
-  width: 588px;
-  height: 90px;
-  position: absolute;
-  left: 109px;
-  top: 0px;
-}
-
 .ds4 .trigger {
-  width: 99px;
-  height: 90px;
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") no-repeat !important;
-  opacity: 0;
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important;
 }
-
-.ds4 .trigger.left { float: left; }
-.ds4 .trigger.right { float: right; background-position-x: 99px; }
-.ds4 .trigger.pressed { opacity: 1; }
-
 
 /* ===== BUMPERS ===== */
-.ds4 .bumpers {
-  position: absolute;
-  width: 588px;
-  height: 23px;
-  left: 109px;
-  top: 94px;
-}
-
 .ds4 .bumper {
-  width: 99px;
-  height: 23px;
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") no-repeat !important;
-  opacity: 0;
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") !important;
 }
 
-.ds4 .bumper.pressed { opacity: 1; }
-.ds4 .bumper.left { float: left; }
-.ds4 .bumper.right { float: right; transform: rotateY(180deg); }
-
-
-/* ===== TOUCHPAD / META (disabled so it doesn't look off) ===== */
-.ds4 .touchpad { display: none !important; }
-.ds4 .meta { display: none !important; }
-
-
-/* ===== SHARE/OPTIONS (BACK/START) ===== */
-.ds4 .arrows {
-  position: absolute;
-  width: 352px;
-  height: 46px;
-  top: 142px;
-  left: 227px;
-}
-
+/* ===== SHARE / OPTIONS ===== */
 .ds4 .back,
 .ds4 .start {
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") no-repeat !important;
-  width: 28px;
-  height: 46px;
-  opacity: 0;
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") !important;
 }
 
-.ds4 .back { float: left; }
-.ds4 .start { float: right; background-position-x: 28px; }
-
-.ds4 .back.pressed,
-.ds4 .start.pressed { opacity: 1; }
-
-
-/* ===== FACE BUTTONS (△ ○ ✕ □) ===== */
-.ds4 .abxy {
-  position: absolute;
-  width: 170px;
-  height: 171px;
-  top: 159px;
-  left: 567px;
-}
-
+/* ===== FACE BUTTONS ===== */
 .ds4 .button {
-  position: absolute;
-  width: 55px;
-  height: 55px;
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") no-repeat !important;
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") !important;
 }
-
-/* pressed row */
-.ds4 .button.pressed { background-position-y: 55px; }
-
-/* Layout matches template’s sprite positions */
-.ds4 .a { bottom: 0; left: 58px; }                         /* X */
-.ds4 .b { top: 58px; right: 0; background-position-x: -57px; } /* O */
-.ds4 .x { top: 58px; left: 0; background-position-x: -113px; } /* □ */
-.ds4 .y { top: 0; left: 58px; background-position-x: 55px; }   /* △ */
-
 
 /* ===== STICKS ===== */
-.ds4 .sticks {
-  position: absolute;
-  width: 361px;
-  height: 105px;
-  top: 308px;
-  left: 228px;
-}
-
 .ds4 .stick {
-  position: absolute;
-  width: 94px;
-  height: 94px;
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") no-repeat !important;
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") !important;
 }
-
-.ds4 .stick.left { top: 0; left: 0; }
-.ds4 .stick.right { top: 0; left: 256px; } /* lock it instead of calc to avoid weird offsets */
-
-.ds4 .stick.pressed.left { background-position-x: -96px; }
-.ds4 .stick.pressed.right { background-position-x: -192px; }
-
 
 /* ===== D-PAD ===== */
-.ds4 .dpad {
-  position: absolute;
-  width: 125px;
-  height: 126px;
-  top: 181px;
-  left: 92px;
-}
-
-/* dpad sprite */
 .ds4 .face {
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") no-repeat !important;
-  position: absolute;
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") !important;
 }
 
-.ds4 .face.up,
-.ds4 .face.down { width: 36px; height: 52px; }
-
-.ds4 .face.left,
-.ds4 .face.right { width: 52px; height: 36px; }
-
-.ds4 .face.up { left: 44px; top: 0; background-position-x: -37px; }
-.ds4 .face.down { left: 44px; bottom: 0; background-position-x: 0px; }
-.ds4 .face.left { left: 0; top: 45px; background-position-x: 104px; }
-.ds4 .face.right { right: 0; top: 45px; background-position-x: 52px; }
-
-.ds4 .face.pressed { background-position-y: 52px; }
+/* Disable touchpad glow (optional, looks cleaner) */
+.ds4 .touchpad.pressed,
+.ds4 .meta.pressed {
+  background: none !important;
+}
 
 /* ===== END ===== */
