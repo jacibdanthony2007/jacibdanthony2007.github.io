@@ -1,126 +1,66 @@
-/* ===== MONNORL FIX PACK (CENTER + FORCE SPRITES) ===== */
+/* ===== MONNORL PS4 (FULL REPLACEMENT) ===== */
+/* Goal: hard-center controller + use MonnoRL assets + PS4 black template positions */
 
-/* Center the controller on the page */
-#controller, .controllers {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  min-height: 100vh !important;
+/* Make the page predictable */
+html, body {
   margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: hidden !important;
 }
 
-/* Make sure the DS4 controller box itself is positioned normally */
-.ds4, .controller.ds4 {
-  position: relative !important;
-  left: 0 !important;
-  top: 0 !important;
-  margin: 0 !important;
+/* Hard-center the controller container (works in browser + OBS) */
+#controller {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
-/* Force your base image */
-.controller.ds4 {
-  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
-  width: 806px !important;
-  height: 598px !important;
+/* Sometimes GPV wraps controllers */
+.controllers, .controller-container, .gamepads {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
-/* Force your sprites onto the existing PS4 black template elements */
-.ds4 .trigger { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important; background-repeat: no-repeat !important; }
-.ds4 .bumper  { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png")  !important; background-repeat: no-repeat !important; }
-.ds4 .back,
-.ds4 .start   { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png")   !important; background-repeat: no-repeat !important; }
-.ds4 .button  { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png")    !important; background-repeat: no-repeat !important; }
-.ds4 .stick   { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png")  !important; background-repeat: no-repeat !important; }
-.ds4 .face    { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png")    !important; background-repeat: no-repeat !important; }
-
-/* Optional: hide touchpad/meta highlights if they look weird */
-.ds4 .touchpad.pressed,
-.ds4 .meta.pressed { background: none !important; 
-}
-
-/* ===== MONNORL OVERRIDES (for editcss) ===== */
-
-/* Base controller image */
-.edit .controller.ds4,
-.edit .ds4 {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") !important;
-  background-repeat: no-repeat !important;
-  width: 806px !important;
-  height: 598px !important;
-}
-
-/* Sprites */
-.edit .ds4 .trigger {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important;
-  background-repeat: no-repeat !important;
-}
-
-.edit .ds4 .bumper {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") !important;
-  background-repeat: no-repeat !important;
-}
-
-.edit .ds4 .back,
-.edit .ds4 .start {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") !important;
-  background-repeat: no-repeat !important;
-}
-
-.edit .ds4 .button {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") !important;
-  background-repeat: no-repeat !important;
-}
-
-.edit .ds4 .stick {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") !important;
-  background-repeat: no-repeat !important;
-}
-
-.edit .ds4 .face {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") !important;
-  background-repeat: no-repeat !important;
-}
-
-/* ===== MONNORL PS4 GAMEPAD VIEWER (FIXED TARGETING) ===== */
-
-/* Target DS4 container reliably */
-#controller.ds4,
-#controller .ds4,
-.controller.ds4,
-.ds4.controller {
+/* Base controller */
+.controller.ds4, .ds4 {
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
   width: 806px !important;
   height: 598px !important;
   position: relative !important;
 }
 
-/* Never hide everything when disconnected */
-#controller.ds4.disconnected div {
-  display: block !important;
-}
+/* If disconnected, don't hide anything */
+.ds4.disconnected { background: none !important; }
+.ds4.disconnected div { display: block !important; }
 
-/* ----- TRIGGERS ----- */
-#controller.ds4 .triggers {
+
+/* ===== TRIGGERS ===== */
+.ds4 .triggers {
   width: 588px;
   height: 90px;
   position: absolute;
   left: 109px;
-  top: 0;
+  top: 0px;
 }
 
-#controller.ds4 .trigger {
+.ds4 .trigger {
   width: 99px;
   height: 90px;
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") no-repeat !important;
   opacity: 0;
 }
 
-#controller.ds4 .trigger.left { float: left; }
-#controller.ds4 .trigger.right { float: right; background-position-x: 99px; }
-#controller.ds4 .trigger.pressed { opacity: 1; }
+.ds4 .trigger.left { float: left; }
+.ds4 .trigger.right { float: right; background-position-x: 99px; }
+.ds4 .trigger.pressed { opacity: 1; }
 
-/* ----- BUMPERS ----- */
-#controller.ds4 .bumpers {
+
+/* ===== BUMPERS ===== */
+.ds4 .bumpers {
   position: absolute;
   width: 588px;
   height: 23px;
@@ -128,19 +68,25 @@
   top: 94px;
 }
 
-#controller.ds4 .bumper {
+.ds4 .bumper {
   width: 99px;
   height: 23px;
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") no-repeat !important;
   opacity: 0;
 }
 
-#controller.ds4 .bumper.left { float: left; }
-#controller.ds4 .bumper.right { float: right; transform: rotateY(180deg); }
-#controller.ds4 .bumper.pressed { opacity: 1; }
+.ds4 .bumper.pressed { opacity: 1; }
+.ds4 .bumper.left { float: left; }
+.ds4 .bumper.right { float: right; transform: rotateY(180deg); }
 
-/* ----- START / BACK ----- */
-#controller.ds4 .arrows {
+
+/* ===== TOUCHPAD / META (disabled so it doesn't look off) ===== */
+.ds4 .touchpad { display: none !important; }
+.ds4 .meta { display: none !important; }
+
+
+/* ===== SHARE/OPTIONS (BACK/START) ===== */
+.ds4 .arrows {
   position: absolute;
   width: 352px;
   height: 46px;
@@ -148,21 +94,23 @@
   left: 227px;
 }
 
-#controller.ds4 .back,
-#controller.ds4 .start {
+.ds4 .back,
+.ds4 .start {
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") no-repeat !important;
   width: 28px;
   height: 46px;
   opacity: 0;
 }
 
-#controller.ds4 .back { float: left; }
-#controller.ds4 .start { float: right; background-position-x: 28px; }
-#controller.ds4 .back.pressed,
-#controller.ds4 .start.pressed { opacity: 1; }
+.ds4 .back { float: left; }
+.ds4 .start { float: right; background-position-x: 28px; }
 
-/* ----- FACE BUTTONS ----- */
-#controller.ds4 .abxy {
+.ds4 .back.pressed,
+.ds4 .start.pressed { opacity: 1; }
+
+
+/* ===== FACE BUTTONS (△ ○ ✕ □) ===== */
+.ds4 .abxy {
   position: absolute;
   width: 170px;
   height: 171px;
@@ -170,22 +118,25 @@
   left: 567px;
 }
 
-#controller.ds4 .button {
+.ds4 .button {
   position: absolute;
   width: 55px;
   height: 55px;
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") no-repeat !important;
 }
 
-#controller.ds4 .button.pressed { background-position-y: 55px; }
+/* pressed row */
+.ds4 .button.pressed { background-position-y: 55px; }
 
-#controller.ds4 .a { bottom: 0; left: 58px; }
-#controller.ds4 .b { top: 58px; right: 0; background-position-x: -57px; }
-#controller.ds4 .x { top: 58px; background-position-x: -113px; }
-#controller.ds4 .y { left: 58px; background-position-x: 55px; }
+/* Layout matches template’s sprite positions */
+.ds4 .a { bottom: 0; left: 58px; }                         /* X */
+.ds4 .b { top: 58px; right: 0; background-position-x: -57px; } /* O */
+.ds4 .x { top: 58px; left: 0; background-position-x: -113px; } /* □ */
+.ds4 .y { top: 0; left: 58px; background-position-x: 55px; }   /* △ */
 
-/* ----- STICKS ----- */
-#controller.ds4 .sticks {
+
+/* ===== STICKS ===== */
+.ds4 .sticks {
   position: absolute;
   width: 361px;
   height: 105px;
@@ -193,21 +144,22 @@
   left: 228px;
 }
 
-#controller.ds4 .stick {
+.ds4 .stick {
   position: absolute;
   width: 94px;
   height: 94px;
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") no-repeat !important;
 }
 
-#controller.ds4 .stick.left { top: 0; left: 0; }
-#controller.ds4 .stick.right { right: 0; bottom: 0; }
+.ds4 .stick.left { top: 0; left: 0; }
+.ds4 .stick.right { top: 0; left: 256px; } /* lock it instead of calc to avoid weird offsets */
 
-#controller.ds4 .stick.pressed.left { background-position-x: -96px; }
-#controller.ds4 .stick.pressed.right { background-position-x: -192px; }
+.ds4 .stick.pressed.left { background-position-x: -96px; }
+.ds4 .stick.pressed.right { background-position-x: -192px; }
 
-/* ----- D-PAD ----- */
-#controller.ds4 .dpad {
+
+/* ===== D-PAD ===== */
+.ds4 .dpad {
   position: absolute;
   width: 125px;
   height: 126px;
@@ -215,25 +167,23 @@
   left: 92px;
 }
 
-#controller.ds4 .face {
-  position: absolute;
+/* dpad sprite */
+.ds4 .face {
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") no-repeat !important;
+  position: absolute;
 }
 
-#controller.ds4 .face.up,
-#controller.ds4 .face.down { width: 36px; height: 52px; }
+.ds4 .face.up,
+.ds4 .face.down { width: 36px; height: 52px; }
 
-#controller.ds4 .face.left,
-#controller.ds4 .face.right { width: 52px; height: 36px; }
+.ds4 .face.left,
+.ds4 .face.right { width: 52px; height: 36px; }
 
-#controller.ds4 .face.up { left: 44px; top: 0; background-position-x: -37px; }
-#controller.ds4 .face.down { left: 44px; bottom: 0; }
-#controller.ds4 .face.left { top: 45px; left: 0; background-position-x: 104px; }
-#controller.ds4 .face.right { top: 45px; right: 0; background-position-x: 52px; }
+.ds4 .face.up { left: 44px; top: 0; background-position-x: -37px; }
+.ds4 .face.down { left: 44px; bottom: 0; background-position-x: 0px; }
+.ds4 .face.left { left: 0; top: 45px; background-position-x: 104px; }
+.ds4 .face.right { right: 0; top: 45px; background-position-x: 52px; }
 
-#controller.ds4 .face.pressed { background-position-y: 52px; }
+.ds4 .face.pressed { background-position-y: 52px; }
 
 /* ===== END ===== */
-
-
-
