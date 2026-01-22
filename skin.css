@@ -1,9 +1,10 @@
 /* ===== MONNORL PS4 GAMEPAD VIEWER (FIXED TARGETING) ===== */
 
-/* Target the actual controller element (prevents blank page) */
+/* Target DS4 container reliably */
 #controller.ds4,
-#controller.controller.ds4,
-#controller .controller.ds4 {
+#controller .ds4,
+.controller.ds4,
+.ds4.controller {
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
   width: 806px !important;
   height: 598px !important;
@@ -150,3 +151,4 @@
 #controller.ds4 .face.pressed { background-position-y: 52px; }
 
 /* ===== END ===== */
+
