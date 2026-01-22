@@ -1,17 +1,22 @@
-/* ===== MONNORL PS4 GAMEPAD VIEWER (FINAL FIX) ===== */
+/* ===== MONNORL PS4 GAMEPAD VIEWER (FINAL FINAL) ===== */
 
-/* Base controller — DO NOT move container */
+/* Hide GPV 2 preview controller */
+.preview,
+.preview-controller,
+.gpv2-preview,
+.controller.preview {
+  display: none !important;
+}
+
+/* Base controller */
 .controller.ds4 {
   background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
-
-  /* NUDGE base image to align with PS4 template */
   background-position: center -18px !important;
-
   width: 806px;
   height: 598px;
 }
 
-/* Prevent disconnected skin from hiding elements */
+/* Prevent disconnected state from hiding parts */
 .ds4.disconnected {
   background: none !important;
 }
@@ -19,41 +24,34 @@
   display: block !important;
 }
 
-/* ===== TRIGGERS ===== */
+/* Use MonnoRL sprites */
 .ds4 .trigger {
   background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important;
 }
 
-/* ===== BUMPERS ===== */
 .ds4 .bumper {
   background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") !important;
 }
 
-/* ===== SHARE / OPTIONS ===== */
 .ds4 .back,
 .ds4 .start {
   background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") !important;
 }
 
-/* ===== FACE BUTTONS ===== */
 .ds4 .button {
   background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") !important;
 }
 
-/* ===== STICKS ===== */
 .ds4 .stick {
   background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") !important;
 }
 
-/* ===== D-PAD ===== */
 .ds4 .face {
   background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") !important;
 }
 
-/* Disable touchpad glow (optional, looks cleaner) */
+/* Clean look */
 .ds4 .touchpad.pressed,
 .ds4 .meta.pressed {
   background: none !important;
 }
-
-/* ===== END ===== */
