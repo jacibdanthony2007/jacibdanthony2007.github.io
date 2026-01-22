@@ -1,224 +1,37 @@
-body { background: lime !important; 
+/* MONNORL DS4 MINIMAL TEST - SAFE */
+
+/* Force base controller image */
+.controller.ds4, .ds4 {
+  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
+  width: 806px !important;
+  height: 598px !important;
+  position: relative !important;
 }
 
-/* ===== MONNORL PS4 GAMEPAD VIEWER SKIN (SAFE VERSION) ===== */
-
-/* Base controller (targets all DS4 variants) */
-.controller.ds4,
-.ds4 {
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png) no-repeat;
-  width: 806px;
-  height: 598px;
-  position: relative;
-}
-
-/* DO NOT HIDE CONTROLLER WHEN DISCONNECTED */
-.ds4.disconnected,
-.ds4.disconnected div {
+/* Ensure elements aren't hidden */
+.ds4.disconnected, .ds4.disconnected div {
   display: block !important;
 }
 
-/* ===== TRIGGERS ===== */
-.ds4 .triggers {
-  position: absolute;
-  width: 588px;
-  height: 90px;
-  left: 109px;
-  top: 0;
-}
+/* Show pressed overlays only (so we can confirm sprites load) */
+.ds4 .trigger { background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") no-repeat !important; opacity: 0; }
+.ds4 .trigger.pressed { opacity: 1; }
+.ds4 .trigger.right { background-position-x: 99px; }
 
-.ds4 .trigger {
-  width: 99px;
-  height: 90px;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png) no-repeat;
-  opacity: 0;
-}
+.ds4 .bumper { background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") no-repeat !important; opacity: 0; }
+.ds4 .bumper.pressed { opacity: 1; }
+.ds4 .bumper.right { transform: rotateY(180deg); }
 
-.ds4 .trigger.left {
-  float: left;
-}
+.ds4 .back, .ds4 .start { background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") no-repeat !important; opacity: 0; width: 28px; height: 46px; }
+.ds4 .start { background-position-x: 28px; }
+.ds4 .back.pressed, .ds4 .start.pressed { opacity: 1; }
 
-.ds4 .trigger.right {
-  float: right;
-  background-position-x: 99px;
-}
+.ds4 .button { background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") no-repeat !important; width: 55px; height: 55px; }
+.ds4 .button.pressed { background-position-y: 55px; }
 
-.ds4 .trigger.pressed {
-  opacity: 1;
-}
+.ds4 .stick { background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") no-repeat !important; width: 94px; height: 94px; }
+.ds4 .stick.pressed.left { background-position-x: -96px; }
+.ds4 .stick.pressed.right { background-position-x: -192px; }
 
-/* ===== BUMPERS ===== */
-.ds4 .bumpers {
-  position: absolute;
-  width: 588px;
-  height: 23px;
-  left: 109px;
-  top: 94px;
-}
-
-.ds4 .bumper {
-  width: 99px;
-  height: 23px;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png) no-repeat;
-  opacity: 0;
-}
-
-.ds4 .bumper.left {
-  float: left;
-}
-
-.ds4 .bumper.right {
-  float: right;
-  transform: rotateY(180deg);
-}
-
-.ds4 .bumper.pressed {
-  opacity: 1;
-}
-
-/* ===== START / BACK ===== */
-.ds4 .arrows {
-  position: absolute;
-  width: 352px;
-  height: 46px;
-  left: 227px;
-  top: 142px;
-}
-
-.ds4 .back,
-.ds4 .start {
-  width: 28px;
-  height: 46px;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png) no-repeat;
-  opacity: 0;
-}
-
-.ds4 .start {
-  float: right;
-  background-position-x: 28px;
-}
-
-.ds4 .back {
-  float: left;
-}
-
-.ds4 .back.pressed,
-.ds4 .start.pressed {
-  opacity: 1;
-}
-
-/* ===== FACE BUTTONS (△ ○ ✕ □) ===== */
-.ds4 .abxy {
-  position: absolute;
-  width: 170px;
-  height: 171px;
-  left: 567px;
-  top: 159px;
-}
-
-.ds4 .button {
-  width: 55px;
-  height: 55px;
-  position: absolute;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png) no-repeat;
-}
-
-.ds4 .button.pressed {
-  background-position-y: 55px;
-}
-
-.ds4 .a { bottom: 0; left: 58px; }
-.ds4 .b { top: 58px; right: 0; background-position-x: -57px; }
-.ds4 .x { top: 58px; background-position-x: -113px; }
-.ds4 .y { left: 58px; background-position-x: 55px; }
-
-/* ===== STICKS ===== */
-.ds4 .sticks {
-  position: absolute;
-  width: 361px;
-  height: 105px;
-  left: 228px;
-  top: 308px;
-}
-
-.ds4 .stick {
-  width: 94px;
-  height: 94px;
-  position: absolute;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png) no-repeat;
-}
-
-.ds4 .stick.left {
-  left: 0;
-  top: 0;
-}
-
-.ds4 .stick.right {
-  right: 0;
-  bottom: 0;
-}
-
-.ds4 .stick.pressed.left {
-  background-position-x: -96px;
-}
-
-.ds4 .stick.pressed.right {
-  background-position-x: -192px;
-}
-
-/* ===== D-PAD ===== */
-.ds4 .dpad {
-  position: absolute;
-  width: 125px;
-  height: 126px;
-  left: 92px;
-  top: 181px;
-}
-
-.ds4 .face {
-  position: absolute;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png) no-repeat;
-}
-
-.ds4 .face.up,
-.ds4 .face.down {
-  width: 36px;
-  height: 52px;
-}
-
-.ds4 .face.left,
-.ds4 .face.right {
-  width: 52px;
-  height: 36px;
-}
-
-.ds4 .face.up {
-  top: 0;
-  left: 44px;
-  background-position-x: -37px;
-}
-
-.ds4 .face.down {
-  bottom: 0;
-  left: 44px;
-}
-
-.ds4 .face.left {
-  left: 0;
-  top: 45px;
-  background-position-x: 104px;
-}
-
-.ds4 .face.right {
-  right: 0;
-  top: 45px;
-  background-position-x: 52px;
-}
-
-.ds4 .face.pressed {
-  background-position-y: 52px;
-}
-
-/* ===== END MONNORL SKIN ===== */
-
-
+.ds4 .face { background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") no-repeat !important; }
+.ds4 .face.pressed { background-position-y: 52px; }
