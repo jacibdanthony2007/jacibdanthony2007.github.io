@@ -1,3 +1,46 @@
+/* ===== MONNORL OVERRIDES (for editcss) ===== */
+
+/* Base controller image */
+.edit .controller.ds4,
+.edit .ds4 {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") !important;
+  background-repeat: no-repeat !important;
+  width: 806px !important;
+  height: 598px !important;
+}
+
+/* Sprites */
+.edit .ds4 .trigger {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important;
+  background-repeat: no-repeat !important;
+}
+
+.edit .ds4 .bumper {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") !important;
+  background-repeat: no-repeat !important;
+}
+
+.edit .ds4 .back,
+.edit .ds4 .start {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") !important;
+  background-repeat: no-repeat !important;
+}
+
+.edit .ds4 .button {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") !important;
+  background-repeat: no-repeat !important;
+}
+
+.edit .ds4 .stick {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") !important;
+  background-repeat: no-repeat !important;
+}
+
+.edit .ds4 .face {
+  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") !important;
+  background-repeat: no-repeat !important;
+}
+
 /* ===== MONNORL PS4 GAMEPAD VIEWER (FIXED TARGETING) ===== */
 
 /* Target DS4 container reliably */
@@ -151,4 +194,5 @@
 #controller.ds4 .face.pressed { background-position-y: 52px; }
 
 /* ===== END ===== */
+
 
