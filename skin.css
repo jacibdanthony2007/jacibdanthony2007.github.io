@@ -47,3 +47,18 @@
 }
 
 /* ===== END ===== */
+/* OBS centering: remove page header + side padding */
+header, nav, .topbar, .navbar, .toolbar, .gpv-header {
+  display: none !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#controller {
+  position: relative !important;
+  top: -160px !important;  /* move up */
+}
+
