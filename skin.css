@@ -1,3 +1,43 @@
+/* ===== MONNORL FIX PACK (CENTER + FORCE SPRITES) ===== */
+
+/* Center the controller on the page */
+#controller, .controllers {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+}
+
+/* Make sure the DS4 controller box itself is positioned normally */
+.ds4, .controller.ds4 {
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  margin: 0 !important;
+}
+
+/* Force your base image */
+.controller.ds4 {
+  background: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png") no-repeat !important;
+  width: 806px !important;
+  height: 598px !important;
+}
+
+/* Force your sprites onto the existing PS4 black template elements */
+.ds4 .trigger { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important; background-repeat: no-repeat !important; }
+.ds4 .bumper  { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png")  !important; background-repeat: no-repeat !important; }
+.ds4 .back,
+.ds4 .start   { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png")   !important; background-repeat: no-repeat !important; }
+.ds4 .button  { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png")    !important; background-repeat: no-repeat !important; }
+.ds4 .stick   { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png")  !important; background-repeat: no-repeat !important; }
+.ds4 .face    { background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png")    !important; background-repeat: no-repeat !important; }
+
+/* Optional: hide touchpad/meta highlights if they look weird */
+.ds4 .touchpad.pressed,
+.ds4 .meta.pressed { background: none !important; 
+}
+
 /* ===== MONNORL OVERRIDES (for editcss) ===== */
 
 /* Base controller image */
@@ -194,5 +234,6 @@
 #controller.ds4 .face.pressed { background-position-y: 52px; }
 
 /* ===== END ===== */
+
 
 
