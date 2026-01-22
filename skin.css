@@ -1,31 +1,33 @@
-/* ===== MONNORL PS4 GAMEPAD VIEWER SKIN ===== */
+/* ===== MONNORL PS4 GAMEPAD VIEWER SKIN (SAFE VERSION) ===== */
 
-.controller.ds4 {
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png);
-  height: 598px;
+/* Base controller (targets all DS4 variants) */
+.controller.ds4,
+.ds4 {
+  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_base.png) no-repeat;
   width: 806px;
+  height: 598px;
+  position: relative;
 }
 
-.ds4.disconnected {
-  background: none;
-}
-
+/* DO NOT HIDE CONTROLLER WHEN DISCONNECTED */
+.ds4.disconnected,
 .ds4.disconnected div {
-  display: none;
+  display: block !important;
 }
 
-/* Triggers */
+/* ===== TRIGGERS ===== */
 .ds4 .triggers {
+  position: absolute;
   width: 588px;
   height: 90px;
-  position: absolute;
   left: 109px;
+  top: 0;
 }
 
 .ds4 .trigger {
   width: 99px;
-  height: 100%;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png);
+  height: 90px;
+  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png) no-repeat;
   opacity: 0;
 }
 
@@ -42,7 +44,7 @@
   opacity: 1;
 }
 
-/* Bumpers */
+/* ===== BUMPERS ===== */
 .ds4 .bumpers {
   position: absolute;
   width: 588px;
@@ -71,20 +73,20 @@
   opacity: 1;
 }
 
-/* Start / Back */
+/* ===== START / BACK ===== */
 .ds4 .arrows {
   position: absolute;
   width: 352px;
   height: 46px;
-  top: 142px;
   left: 227px;
+  top: 142px;
 }
 
 .ds4 .back,
 .ds4 .start {
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png);
   width: 28px;
   height: 46px;
+  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png) no-repeat;
   opacity: 0;
 }
 
@@ -102,71 +104,55 @@
   opacity: 1;
 }
 
-/* Face Buttons */
+/* ===== FACE BUTTONS (△ ○ ✕ □) ===== */
 .ds4 .abxy {
   position: absolute;
   width: 170px;
   height: 171px;
-  top: 159px;
   left: 567px;
+  top: 159px;
 }
 
 .ds4 .button {
-  position: absolute;
   width: 55px;
   height: 55px;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png);
+  position: absolute;
+  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png) no-repeat;
 }
 
 .ds4 .button.pressed {
   background-position-y: 55px;
 }
 
-.ds4 .a {
-  bottom: 0;
-  left: 58px;
-}
+.ds4 .a { bottom: 0; left: 58px; }
+.ds4 .b { top: 58px; right: 0; background-position-x: -57px; }
+.ds4 .x { top: 58px; background-position-x: -113px; }
+.ds4 .y { left: 58px; background-position-x: 55px; }
 
-.ds4 .b {
-  top: 58px;
-  right: 0;
-  background-position-x: -57px;
-}
-
-.ds4 .x {
-  top: 58px;
-  background-position-x: -113px;
-}
-
-.ds4 .y {
-  left: 58px;
-  background-position-x: 55px;
-}
-
-/* Sticks */
+/* ===== STICKS ===== */
 .ds4 .sticks {
   position: absolute;
   width: 361px;
   height: 105px;
-  top: 308px;
   left: 228px;
+  top: 308px;
 }
 
 .ds4 .stick {
-  position: absolute;
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png);
-  height: 94px;
   width: 94px;
+  height: 94px;
+  position: absolute;
+  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png) no-repeat;
 }
 
 .ds4 .stick.left {
-  top: 0;
   left: 0;
+  top: 0;
 }
 
 .ds4 .stick.right {
-  top: calc(100% - 105px);
-  left: calc(100% - 105px);
+  right: 0;
+  bottom: 0;
 }
 
 .ds4 .stick.pressed.left {
@@ -177,18 +163,18 @@
   background-position-x: -192px;
 }
 
-/* D-Pad */
+/* ===== D-PAD ===== */
 .ds4 .dpad {
   position: absolute;
   width: 125px;
   height: 126px;
-  top: 181px;
   left: 92px;
+  top: 181px;
 }
 
 .ds4 .face {
-  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png);
   position: absolute;
+  background: url(https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png) no-repeat;
 }
 
 .ds4 .face.up,
@@ -204,25 +190,25 @@
 }
 
 .ds4 .face.up {
-  left: 44px;
   top: 0;
+  left: 44px;
   background-position-x: -37px;
 }
 
 .ds4 .face.down {
-  left: 44px;
   bottom: 0;
+  left: 44px;
 }
 
 .ds4 .face.left {
-  top: 45px;
   left: 0;
+  top: 45px;
   background-position-x: 104px;
 }
 
 .ds4 .face.right {
-  top: 45px;
   right: 0;
+  top: 45px;
   background-position-x: 52px;
 }
 
@@ -231,5 +217,3 @@
 }
 
 /* ===== END MONNORL SKIN ===== */
-
-
