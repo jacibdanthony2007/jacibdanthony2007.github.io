@@ -1,12 +1,4 @@
-/* ===== MONNORL PS4 GAMEPAD VIEWER (FINAL FINAL) ===== */
-
-/* Hide GPV 2 preview controller */
-.preview,
-.preview-controller,
-.gpv2-preview,
-.controller.preview {
-  display: none !important;
-}
+/* ===== MONNORL PS4 GAMEPAD VIEWER (CLEAN FINAL) ===== */
 
 /* Base controller */
 .controller.ds4 {
@@ -16,7 +8,7 @@
   height: 598px;
 }
 
-/* Prevent disconnected state from hiding parts */
+/* Prevent disconnected skin from hiding controller */
 .ds4.disconnected {
   background: none !important;
 }
@@ -24,34 +16,34 @@
   display: block !important;
 }
 
-/* Use MonnoRL sprites */
-.ds4 .trigger {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_triggers.png") !important;
-}
+/* ===== HIDE OVERLAY BUTTON SHAPES (VISUAL ONLY) ===== */
+/* Inputs still work, visuals are baked into base image */
 
-.ds4 .bumper {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_bumper.png") !important;
-}
-
+.ds4 .button,
+.ds4 .face,
+.ds4 .stick,
+.ds4 .trigger,
+.ds4 .bumper,
 .ds4 .back,
 .ds4 .start {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_start.png") !important;
+  opacity: 0 !important;
 }
 
-.ds4 .button {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_face.png") !important;
+/* OPTIONAL: show glow when pressed (clean look) */
+.ds4 .button.pressed,
+.ds4 .face.pressed,
+.ds4 .stick.pressed,
+.ds4 .trigger.pressed,
+.ds4 .bumper.pressed,
+.ds4 .back.pressed,
+.ds4 .start.pressed {
+  opacity: 0.35 !important;
 }
 
-.ds4 .stick {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_sticks.png") !important;
+/* Disable touchpad/meta */
+.ds4 .touchpad,
+.ds4 .meta {
+  display: none !important;
 }
 
-.ds4 .face {
-  background-image: url("https://jacibdanthony2007.github.io/ps4-assets/monnorl_dpad.png") !important;
-}
-
-/* Clean look */
-.ds4 .touchpad.pressed,
-.ds4 .meta.pressed {
-  background: none !important;
-}
+/* ===== END ===== */
